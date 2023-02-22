@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""App module for flask"""
 import os
 from flask import Flask
 from models import storage
@@ -8,6 +10,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def teardown_db(exception):
+    """handles teardown storage"""
     storage.close()
 
 if __name__ == "__main__":
